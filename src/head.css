@@ -1,0 +1,16 @@
+.la-head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #1e1e1e;
+  height: 8vmin;
+  color: #959595;
+  justify-content: space-between;
+}
+
+
+h2 {
+  padding-left: 1vh;
+  font-family: "AKONY", serif;
+
+}

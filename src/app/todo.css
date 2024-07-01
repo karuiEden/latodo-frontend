@@ -1,0 +1,22 @@
+.todo-unit {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Comfortaa', sans-serif;
+  color: #aaaaaa;
+  height: 6vmin;
+  padding-left: 3vmin;
+  padding-right: 3vmin;
+  margin-left: 2vmin;
+  margin-right: 2vmin;
+  border-radius: 10px;
+  background-color: #1e1e1e;
+  transition: all 0.5s ease; /* Добавлено сюда */
+}
+
+.todo-unit:hover {
+  outline: 1px solid #aaaaaa;
+}
+
+

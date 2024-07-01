@@ -1,13 +1,54 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {HeadComponent} from "./head.component";
+import {TodoUnitComponent} from "./todo.component";
+import {RouterOutlet} from "@angular/router";
 
 @Component({
   selector: 'app-root',
+  template: `
+    <la-header/>
+    <div class="la-tasks">
+      @for (task of tasks; track task.id) {
+        <li>
+          <todo-unit [todoUnit]="task"></todo-unit>
+        </li>
+      }
+    </div>
+ `,
+  imports: [
+    HeadComponent,
+    TodoUnitComponent,
+    RouterOutlet
+  ],
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'latodo-frontend';
+  tasks = [{
+    id: "",
+    name: 'lala',
+    isComplete: false,
+    date: 0,
+    description: '',
+    showDescription: false
+  },
+    {
+      id: "",
+      name: 'lala1',
+      isComplete: false,
+      date: 0,
+      description: '',
+      showDescription: false
+    },
+    {
+      id: "",
+      name: 'lala2',
+      isComplete: false,
+      date: 0,
+      description: '',
+      showDescription: false
+    }
+  ]
+  trackById(index: number, task: any): string {
+    return task.id;
+  }
 }
