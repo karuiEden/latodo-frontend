@@ -1,34 +1,33 @@
-import {Component, Input} from "@angular/core";
+import {Component} from "@angular/core";
 import {TodoUnitComponent} from "./todo.component";
 import { CommonModule } from '@angular/common';
+import {TodoService, TodoUnit} from "./todo.service";
+import {Observable} from "rxjs";
 @Component({
   selector: "app-tasks",
   styleUrl: "./menu.css",
   template: `
-    <div class="menu">
-
-        <div class="la-tasks">
-          @for (task of tasks; track task.id) {
+        <ng-container class="la-tasks" *ngIf="tasks$ | async as tasks">
+          @for (task of tasks; track task.ID) {
             <li>
-                <todo-unit [todoUnit]="task"></todo-unit>
+                <todo-unit [UnitID]="task.ID"></todo-unit>
             </li>
           }
-        </div>
-
-    </div>`,
+        </ng-container>
+    `,
   imports: [
     TodoUnitComponent,
-    CommonModule
+    CommonModule,
+
   ],
   standalone: true
 })
 export class TaskComponent {
-  @Input() tasks = [{
-    id: "",
-    name: 'lala',
-    isComplete: false,
-    date: 0,
-    description: '',
-    showDescription: false
-  }]
+  tasks$!: Observable<TodoUnit[]>;
+
+  constructor(private taskService: TodoService) {}
+
+  ngOnInit() {
+    this.tasks$ = this.taskService.getTasks();
+  }
 }

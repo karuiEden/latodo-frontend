@@ -1,6 +1,8 @@
 import {Component, Input} from "@angular/core";
-import {DatePipe} from "@angular/common";
+import {AsyncPipe, DatePipe, NgIf} from "@angular/common";
 import {FormsModule} from "@angular/forms";
+import {TodoService, TodoUnit} from "./todo.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: "todo-unit",
@@ -8,25 +10,28 @@ import {FormsModule} from "@angular/forms";
   styleUrl: "./todo.css",
   imports: [
     DatePipe,
-    FormsModule
+    FormsModule,
+    AsyncPipe,
+    NgIf
   ],
   template: `
-    <div class="todo-unit" (click)="showDescription()">
-      <input type="checkbox" [ngModel]="todoUnit.isComplete"/>
-      <p>{{ todoUnit.name }}</p>
-      <p>{{ todoUnit.date | date }}</p>
+    <div class="todo-unit">
+    <ng-container *ngIf="task$ | async as task">
+      <input type="checkbox" [checked]="task.isComplete" (change)="updateComplete(task.isComplete)" />
+        <p>{{ task.name }}</p>
+      <p>{{ task.CreatedAt | date }}</p>
+    </ng-container>
     </div>`
 })
 export class TodoUnitComponent {
-  @Input() todoUnit = {
-    id: "",
-    name: 'lala',
-    isComplete: false,
-    date: 0,
-    description: '',
+  @Input() UnitID!: number;
+  task$!: Observable<TodoUnit>;
+  constructor(private taskService: TodoService) {}
+
+  updateComplete(isDone: boolean) {
+    this.task$ = this.taskService.completeTask(this.UnitID, !isDone);
   }
-  @Input() isShowDescription = false;
-  showDescription(){
-    alert(this.todoUnit.description);
+  ngOnInit(){
+    this.task$ = this.taskService.getTask(this.UnitID);
   }
 }
