@@ -17,7 +17,7 @@ import {Observable} from "rxjs";
   template: `
     <div class="todo-unit">
     <ng-container *ngIf="task$ | async as task">
-      <input type="checkbox" [checked]="task.isComplete" (change)="updateComplete(task.isComplete)" />
+      <input type="checkbox" [checked]="task.IsCompleted" (change)="updateComplete(task)"  />
         <p>{{ task.name }}</p>
       <p>{{ task.CreatedAt | date }}</p>
     </ng-container>
@@ -28,8 +28,10 @@ export class TodoUnitComponent {
   task$!: Observable<TodoUnit>;
   constructor(private taskService: TodoService) {}
 
-  updateComplete(isDone: boolean) {
-    this.task$ = this.taskService.completeTask(this.UnitID, !isDone);
+  updateComplete(task: TodoUnit) {
+    task.IsCompleted = !task.IsCompleted;
+    this.taskService.completeTask(this.UnitID, task.IsCompleted).subscribe();
+    this.taskService.getTask(this.UnitID).subscribe();
   }
   ngOnInit(){
     this.task$ = this.taskService.getTask(this.UnitID);

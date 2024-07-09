@@ -5,7 +5,7 @@ import {Observable} from "rxjs";
 export interface TodoUnit {
   ID: number;
   name: string;
-  isComplete: boolean;
+  IsCompleted: boolean;
   CreatedAt: string;
 }
 
@@ -26,7 +26,7 @@ export interface TodoUnit {
     return this.http.get<TodoUnit>(`${this.url}/tasks/${id}`);
   }
 
-  completeTask(id: number, isDone: boolean): Observable<TodoUnit> {
-    return this.http.patch<TodoUnit>(`${this.url}/tasks/${id}`, {IsCompleted: isDone});
+  completeTask(id: number, IsCompleted: boolean): Observable<TodoUnit> {
+    return this.http.patch<TodoUnit>(`${this.url}/tasks/${id}`, {IsCompleted});
   }
 }
