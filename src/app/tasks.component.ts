@@ -10,7 +10,7 @@ import {Observable} from "rxjs";
         <ng-container class="la-tasks" *ngIf="tasks$ | async as tasks">
           @for (task of tasks; track task.ID) {
             <li>
-                <todo-unit [UnitID]="task.ID"></todo-unit>
+                <todo-unit [UnitID]="task.ID" (trigger)="deleteTask(task.ID)"></todo-unit>
             </li>
           }
         </ng-container>
@@ -29,5 +29,9 @@ export class TaskComponent {
 
   ngOnInit() {
     this.tasks$ = this.taskService.getTasks();
+  }
+
+  deleteTask(id: number): void {
+    this.taskService.deleteTask(id).subscribe({complete: () => this.tasks$ = this.taskService.getTasks(), error: (error)=> console.log(error)});
   }
 }

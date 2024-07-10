@@ -15,10 +15,10 @@ import {RouterLink} from "@angular/router";
       <div class="la-head">
         <div class="logo"><h2>La TODO</h2></div>
 
-      <div class="la-avatar"><img src="../../public/avatar.svg" height="30px" width="30px" alt="avatar"></div>
+        <div class="la-avatar"><img src="/avatar.svg" height="30px" width="30px" alt="avatar"></div>
       </div>
     </header>`
 })
 export class HeadComponent {
-  avatar = "/public/avatar.svg";
+  avatar = "/avatar.svg";
   }

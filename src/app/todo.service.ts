@@ -29,4 +29,8 @@ export interface TodoUnit {
   completeTask(id: number, IsCompleted: boolean): Observable<TodoUnit> {
     return this.http.patch<TodoUnit>(`${this.url}/tasks/${id}`, {IsCompleted});
   }
+
+  deleteTask(id: number): Observable<TodoUnit> {
+    return this.http.delete<TodoUnit>(`${this.url}/tasks/${id}`);
+  }
 }
