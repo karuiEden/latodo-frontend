@@ -1,0 +1,35 @@
+.taskForm {
+  height: 6vmin;
+  margin-top: 3vmin;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2vmin;
+  margin-left: 2vmin;
+  margin-right: 2vmin;
+  border-radius: 10px;
+  padding-right: 2vmin  ;
+  background-color: #1e1e1e;
+  transition: all 0.5s ease;
+}
+
+.text-input {
+  flex: 1;
+  width: auto;
+  background: #1e1e1e;
+  border: 0;
+  height: 5vmin;
+  color: #959595;
+  font-family: Comfortaa, sans-serif;
+}
+
+.text-input:focus{
+  outline: none;
+  color: #aaaaaa;
+  transition: all 0.3s ease;
+}
+
+.submit-btn {
+
+}
