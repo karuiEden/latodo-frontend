@@ -15,6 +15,8 @@
   transition: all 0.5s ease; /* Добавлено сюда */
 }
 
+
+
 .todo-unit:hover {
   outline: 1px solid #aaaaaa;
 }
