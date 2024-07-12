@@ -1,9 +1,4 @@
-@font-face {
-  font-family: 'AKONY';
-  src: url('~public/fonts/AKONY.ttf');
-  font-weight: normal;
-  font-style: normal;
-}
+
 
 .la-head {
   display: flex;
