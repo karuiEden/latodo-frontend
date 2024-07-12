@@ -1,22 +1,20 @@
-.menu {
+.la-work {
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
   justify-content: space-between;
+  margin: 3vmin;
+
 }
 
-.la-clock {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    font-family: 'Comfortaa', sans-serif;
-    color: #aaaaaa;
-    height: 6vmin;
-    padding-left: 3vmin;
-    padding-right: 3vmin;
-    margin-left: 2vmin;
-    margin-right: 2vmin;
-    border-radius: 10px;
-    background-color: #1e1e1e;
-    transition: all 0.5s ease; /* Добавлено сюда */
+.la-task {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  flex-basis: content;
+  align-items: center;
+  padding-right: 50%;
+  list-style-type: none;
 }
+

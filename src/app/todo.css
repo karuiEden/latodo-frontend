@@ -1,15 +1,14 @@
 .todo-unit {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   font-family: 'Comfortaa', sans-serif;
   color: #aaaaaa;
   height: 6vmin;
-  padding-left: 3vmin;
-  padding-right: 3vmin;
-  margin-left: 2vmin;
-  margin-right: 2vmin;
+  margin-top: 2vmin;
+  padding-left: 1.5vmin;
+  flex: 2;
+  width: 60vw;
   border-radius: 10px;
   background-color: #1e1e1e;
   transition: all 0.5s ease; /* Добавлено сюда */

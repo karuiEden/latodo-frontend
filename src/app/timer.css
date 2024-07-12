@@ -1,0 +1,22 @@
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Comfortaa', sans-serif;
+  color: #aaaaaa;
+  padding-left: 3vmin;
+  padding-right: 3vmin;
+  margin-top: -5vmin;
+  position: fixed;
+  top: 18vh;
+  left: 63vw;
+  width: 30vw;
+  border-radius: 10px;
+  background-color: #1e1e1e;
+  transition: all 0.5s ease; /* Добавлено сюда */
+}
+
+.timer-btns {
+  display: flex;
+  justify-content: space-between;
+}

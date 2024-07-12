@@ -10,10 +10,9 @@ import {CreateTaskComponent} from "./createTask.component";
   styleUrl: "./menu.css",
   template: `
     <ng-container class="la-tasks" *ngIf="tasks$ | async as tasks">
-      <create-task (NewTaskTrigger)="createTask($event)"/>
       @for (task of tasks; track task.ID) {
-        <li>
-          <todo-unit [UnitID]="task.ID" (trigger)="deleteTask(task.ID)"></todo-unit>
+        <li style="list-style-type: none">
+          <todo-unit [UnitID]="task.ID" (trigger)="deleteTask(task.ID)"/>
         </li>
       }
     </ng-container>
@@ -38,7 +37,5 @@ export class TaskComponent {
     this.taskService.deleteTask(id).subscribe({error: (error)=> console.log(error)});
   }
 
-  createTask(taskName: string): void {
-    this.taskService.createTask(taskName).subscribe({next : ()=>{this.ngOnInit()} ,error: (error)=> console.log(error)});
-  }
+
 }

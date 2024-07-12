@@ -1,21 +1,15 @@
 .taskForm {
-  height: 6vmin;
-  margin-top: 3vmin;
   display: flex;
-  flex-direction: row;
+  height: 6vmin;
   justify-content: space-between;
   align-items: center;
-  padding-left: 2vmin;
-  margin-left: 2vmin;
-  margin-right: 2vmin;
-  border-radius: 10px;
-  padding-right: 2vmin  ;
+
   background-color: #1e1e1e;
   transition: all 0.5s ease;
 }
 
 .text-input {
-  flex: 1;
+  flex: 2;
   width: auto;
   background: #1e1e1e;
   border: 0;
